@@ -1,0 +1,431 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+html {
+  text-rendering: optimizeLegibility;
+}
+:root {
+  --font-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: Menlo, Monaco, Consolas, "Courier New", monospace;
+
+  --color-bg: #f5f5f7;
+  --color-surface: #ffffff;
+  --color-text: #111827;
+  --color-muted: #6b7280;
+  --color-primary: #2563eb;
+  --color-primary-soft: #dbeafe;
+  --color-border: #e5e7eb;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  --container-width: 1120px;
+}
+:root {
+  --theme-body-font: "Inter", sans-serif;
+  --theme-body-font-size: 16px;
+  --theme-heading-font: "Inter", sans-serif;
+  --theme-product-price-font: Oswald;
+  --price-font-weight: 600;
+}
+:root {
+  --lt-color-gray-100: #f8f9fc;
+  --lt-color-gray-200: #f1f3f9;
+  --lt-color-gray-300: #dee3ed;
+  --lt-color-gray-400: #c2c9d6;
+  --lt-color-gray-500: #8f96a3;
+  --lt-color-gray-600: #5e636e;
+  --lt-color-gray-700: #2f3237;
+  --lt-color-gray-800: #1d1e20;
+  --lt-color-gray-900: #111213;
+  --lt-color-white: #fff !important;
+  --lt-color-black: #111213 !important;
+  --lt-color-transparent: rgba(255, 255, 255, 0) !important;
+  --lt-color-background-light: var(--lt-color-gray-100) !important;
+  --lt-color-background-default: var(--lt-color-gray-200) !important;
+  --lt-color-background-dark: var(--lt-color-gray-300) !important;
+  --lt-color-border-light: var(--lt-color-gray-200) !important;
+  --lt-color-border-default: var(--lt-color-gray-300) !important;
+  --lt-color-border-dark: var(--lt-color-gray-400) !important;
+  --lt-color-text-very-light: var(--lt-color-gray-500) !important;
+  --lt-color-text-light: var(--lt-color-gray-600) !important;
+  --lt-color-text-default: var(--lt-color-gray-700) !important;
+  --lt-color-text-dark: var(--lt-color-gray-800) !important;
+  --lt-color-overlay-default: #fff !important;
+  --lt-color-overlay-dark: #fff !important;
+  --lt-color-overlay-transparent: rgba(0, 0, 0, 0.1) !important;
+  --lt-shadow-website-overlay: 0 0 7px 0 rgba(0, 0, 0, 0.3) !important;
+  --lt-shadowDefault: 0 2px 6px -1px rgba(0, 0, 0, 0.16), 0 1px 4px -1px rgba(0, 0, 0, 0.04);
+  --lt-shadowActive: 0 0 8px -2px rgba(0, 0, 0, 0.1), 0 6px 20px -3px rgba(0, 0, 0, 0.2);
+}
+/* 3. Body and global text */
+body {
+  font-family: var(--font-base);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+p{
+    margin-bottom: 0 !important;
+}
+/* ---------------------------Main Header */
+.main-header {
+ /* padding: 5px 0; */
+ position: relative;
+ background-color: #eff4f7;
+ box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+.main-header .top-header{
+    border-bottom: 2px solid var(--color-border);
+    /* padding: 8px 0; */
+    height: 70px;
+  display: flex;
+  align-items: center;
+}
+.logo a img{
+    width: 180px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+/* ------------------------------Search bar */
+.search-bar{
+    position: relative;
+    
+}
+.search-bar .searchInput{
+  background: #fff;
+  width: 100%;
+  border-radius: 8px;
+  position: absolute;
+  z-index: 9;
+  /* box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12); */
+
+}
+.searchInput input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: 1px solid rgb(197, 207, 219);
+  border-radius: 8px;
+  padding: 0 60px 0 20px;
+  font-size: 18px;
+  /* box-shadow: 0px 1px 5px rgba(0,0,0,0.1); */
+  min-height: 45px;
+  font-size: 14px;
+}
+
+.searchInput.active input{
+  border-radius: 5px 5px 0 0;
+}
+
+.searchInput .resultBox{
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.searchInput.active .resultBox{
+  padding: 10px 8px;
+  opacity: 1;
+  pointer-events: auto;
+  box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12);
+  border-radius: 0 0 8px 8px;
+}
+
+.resultBox li{
+  list-style: none;
+  padding: 8px 12px;
+  display: none;
+  width: 100%;
+  cursor: default;
+  border-radius: 3px;
+}
+
+.searchInput.active .resultBox li{
+  display: block;
+}
+.resultBox li:hover{
+  background: #efefef;
+}
+
+.searchInput .icon{
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 45px;
+  width: 45px;
+  text-align: center;
+  line-height: 45px;
+  font-size: 20px;
+  color: #21708f;
+  cursor: pointer;
+}
+
+.user-services{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 100%;
+    justify-content: end;
+}
+.user-services .account-section{
+    display:block;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--color-text);
+    position: relative;
+}
+.user-services .account-section .icon1{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e2eaed;
+    border-radius: 50%;
+    border: 1px solid #d2d2d2;
+}
+.user-services .account-section .icon1::before{
+    font-family: "Bootstrap-Icons";
+    content: "\F4E1";
+    font-weight: 400;
+    font-size: 26px;
+    color: #626262;
+}
+.user-services .account-section .accontent{
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+} 
+.accontent .sn{
+    font-size: 12px !important;
+    color: #a8a8a8;
+    line-height: 14px;
+}
+.accontent .acc{
+    font-size: 14px;
+    font-weight: 600;
+    color: #333333;
+}
+.accontent {
+  position: relative;
+  display: inline-block;
+  margin-left: -12px;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+  user-select:   none;
+}
+.infouser span{
+    font-size: 15px;
+    font-weight: 600;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.infouser span::before{
+    content: '\F52F';
+    font-family: 'Bootstrap-Icons';
+    font-size: 18px;
+}
+.infouser p{
+    font-size: 13px;
+    color: #a8a8a8;
+    margin-top: 2px;
+}
+.dropdown-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  position: absolute;
+  top: 100%;
+  left: -110px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  min-width: 250px !important;
+  width: 100% !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  padding: 20px !important;
+  margin-top: 4px;
+  list-style: none;
+  z-index: 1000;
+}
+
+.accontent:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.dropdown-menu li:first-child{
+    border-bottom: 1px solid #eee;  
+    padding: 10px 0;
+
+}
+.dropdown-menu li .dromain {
+  display: block;
+  padding: 8px 12px;
+  color: #333;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+  background-color: aliceblue;
+  margin-top: 15px;
+}
+
+.dropdown-menu li .dromain:hover {
+  /* background-color: #f0f0f0; */
+}
+.accontent:hover .dropdown-menu {
+  display: block;
+}
+.user-services .account-section .icon2{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e2eaed;
+    border-radius: 50%;
+    border: 1px solid #d2d2d2;
+}
+.user-services .account-section .icon2::before{
+    font-family: "Bootstrap-Icons";
+    content: "\F417";
+    font-weight: 400;
+    font-size: 26px;
+    color: #626262;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    top: 5px;
+}
+.user-services .account-section .count-heart{
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background-color: #ff3b3b;
+    color: #fff;
+    font-size: 10px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.user-services .account-section .icon3{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e2eaed;
+    border-radius: 50%;
+    border: 1px solid #d2d2d2;
+}
+.user-services .account-section .icon3::before{
+    font-family: "Bootstrap-Icons";
+    content: "\F242";
+    font-weight: 400;
+    font-size: 26px;
+    color: #626262;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    top: 2px;
+}
+.user-services .account-section .count-cart{
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background-color: #ff3b3b;
+    color: #fff;
+    font-size: 10px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main-header .bottom-header {
+     border-bottom: 1px solid var(--color-border);
+    height: 48px;
+    display: flex;
+    align-items: center;
+    background-color: #eff4f7;;
+}
+.main-header .bottom-header .main-nav{
+    padding: 0;
+}
+.main-header .bottom-header .main-nav .navbar-nav{
+    justify-content: center;
+    width: 100%;
+}
+.main-header .bottom-header .main-nav .navbar-nav .nav-item .nav-link{
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--color-text);
+    padding: 10px 15px;
+}
+/* -----------------------------------Banner */
+.banner-content {
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+}
+
+.banner-item {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+}
+
+.banner-item.active {
+  opacity: 1;
+  position: relative;
+  pointer-events: auto;
+}
+
+/* Keep your banner-item styling for layout */
+.banner-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
